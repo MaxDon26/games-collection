@@ -1,7 +1,12 @@
-import { HomePage } from './home-page'
-import './styles.css'
+import { HomePage } from "./home-page";
+import { Gallows } from "./module/gallows";
+import "./styles.css";
+import "./css/Gallows.css";
 
-const home = new HomePage()
+const home = new HomePage();
+const gallows = new Gallows("gallows", "Виселица");
 
-home.menu()
-home.render()
+// home.add(gallows);
+gallows.render();
+home.menu();
+home.render();
