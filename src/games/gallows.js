@@ -1,15 +1,31 @@
 import { Game } from "../core/Game";
 import { random } from "../utils";
-import * as words from "./gallowsWords";
+import * as words from "../module/gallowsWords";
+import image from '../assets/gallows.png';
 
 export class Gallows extends Game {
-  #gameContainer;
-  #letters;
+  #gameContainer
+  #letters
+  #card
+  #title
+  #image
+
   constructor(type, text) {
     super(type, text);
     this.#gameContainer = document.createElement("div");
-    this.#gameContainer.className = "container";
+    this.#gameContainer.className = "gallows";
+    this.#card = document.createElement('div') // карточка игры для меню
+    this.#card.classList.add('game-card')
+    this.#image = document.createElement('img')
+    this.#image.src = image // картинка карточки
+    this.#image.className = 'image'
+    this.#image.classList.add('invert')
+    this.#title = document.createElement('h3')
+    this.#title.classList.add('title')
+    this.#title.textContent = this.text
+
     this.#letters = words.country; // заглушка для теста
+
   }
 
   #drawOnCavas() {}
@@ -33,10 +49,10 @@ export class Gallows extends Game {
 
   #createAlphabet() {
     let alphabet = ["абвгдеёжзийклмнопрстуфхцчшщъыьэюя"];
-    const alphabet = alphabet[0].split("");
+    alphabet = alphabet[0].split("");
   }
 
-  render() {
+  #render() {
     const title = document.createElement("h1");
     title.className = "title";
     title.textContent = `${this.text}`;
@@ -44,19 +60,24 @@ export class Gallows extends Game {
     const canvas = document.createElement("canvas");
     canvas.className = "gallows_area";
 
-    const currentWord = this.#letters[random(0, this.#letters.length)];
+    const currentWord = this.#letters[random(0, this.#letters.length)].toUpperCase();
 
     const spellTheWord = document.createElement("ul");
     spellTheWord.className = "letters_list";
     this.#createWord(currentWord, spellTheWord);
     this.#createAlphabet();
     this.#gameContainer.append(title, canvas, spellTheWord);
-    document.body.append(this.#gameContainer);
   }
 
-  start() {}
+  start() {
+    this.#gameContainer.textContent = '';
+    this.#render();
+    return this.#gameContainer
+  }
 
   getGameCard() {
-    return this.#gameContainer;
+    this.#card.append(this.#image)
+    this.#card.append(this.#title)
+    return this.#card;
   }
 }

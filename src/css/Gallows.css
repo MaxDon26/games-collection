@@ -1,1 +1,30 @@
-.container{display:block;height:100vh;width:100vw;background:#888}.container .title{text-align:center;margin-top:20px;font-size:32px;color:white}.container .letters_list{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.container .letters_letter{list-style:none;margin:0 5px;font-size:42px;font-weight:700}
+.gallows {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
+  background: #777;
+}
+
+.gallows .title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 32px;
+  color: white;
+}
+
+.gallows .letters_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gallows .letters_letter {
+  list-style: none;
+  margin: 0 5px;
+  font-size: 42px;
+  font-weight: 700;
+}
