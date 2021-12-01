@@ -23,7 +23,7 @@ export class HomePage extends Home {
         this.#search.setInputValueHandler = this.search
         this.el.append(this.#search.render())
         this.#menuItems.forEach((item) => {
-            item.getGameCard().addEventListener('click', (e) => this.game(item.start))
+            item.getGameCard().addEventListener('click', (e) => this.game(item.start.bind(item)))
             this.#gameCardsContainer.append(item.getGameCard())
         })
         this.el.append(this.#gameCardsContainer)
@@ -31,7 +31,7 @@ export class HomePage extends Home {
 
     game(callback) {
         this.el.textContent = ''
-        this.#navbar.setButtonListener(this.menu)
+        this.#navbar.setButtonListener = this.menu.bind(this)
         this.el.append(this.#navbar.render())
         this.el.append(callback())
     }
