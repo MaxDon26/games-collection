@@ -2,8 +2,11 @@
     display: block
     margin-top: 20px
     width: 100%
-    height: 400px
-    background: #777
+    height: 80% 
+    padding: 0 0 80px 0
+    background: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1612569421_168-p-shkolnaya-doska-fon-zelenaya-209.jpg') center/cover
+    border-radius: 15px
+    box-shadow: 0 0 7px #777
 
     .title
         text-align: center
@@ -15,10 +18,106 @@
         &_list
             display: flex
             justify-content: center
+            color: #e7e7e7f6
+
 
         &_letter
             list-style: none
             margin: 0 5px
+            width: 30px
             font-size: 42px
             font-weight: 700
-            // opacity: 0
+            text-align: center
+            span
+                display: inline-block
+                opacity: 0
+                transition: .5s
+                transform: translateY(-20px)
+
+            &::after
+                width: 110%
+                height: 5px
+                content: ''
+                display: block
+                background: #c5c5c5f6
+                opacity: 1
+
+            &.visible
+                span
+                    opacity: 1
+                    transform: translateY(0px)
+     
+
+    .alphabet
+        list-style: none
+        display: flex
+        margin: 0 auto
+        max-width: 400px
+        margin-top: 20px
+        justify-content: center
+        flex-wrap: wrap
+        cursor: pointer
+
+        &_letter
+            font-size: 40px
+            padding: 0 10px
+            // text-decoration: underline
+            color: #c5c5c5f6
+            transition: .2s
+            width: 50px
+            &:hover
+                text-shadow: 0 0 3px #515cfdd3, 0 0 7px #2634fdd5
+                transform: scale(1.3)
+
+            &.checked
+                position: relative
+
+                &::after, &::before
+                    position: absolute
+                    left: 9px
+                    top: 50%
+                    content: ''
+                    background: #830202
+                    display: block
+                    width: 50%
+                    height: 7px
+                    border-radius: 5px
+                    transform: rotate(45deg) 
+                &::before
+                    transform: rotate(-45deg)
+                    
+            &.done
+                position: relative
+                &::after, &::before
+                    position: absolute
+                    left: 5px
+                    top: 50%
+                    content: ''
+                    background: #0cce05
+                    display: block
+                    width: 50%
+                    height: 7px
+                    border-radius: 5px
+                    transform: rotate(50deg) 
+                &::before
+                    left: 18px
+                    transform: rotate(-50deg)
+
+    .again
+        margin: 0 auto
+        display: block
+        margin-top: 30px
+        width: 200px
+        height: 60px
+        background: #c5c5c5f6
+        border: 3px solid #c5c5c5f6
+        box-shadow:  0 0 10px #515cfdb6
+        border-radius: 5px
+        font-size: 24px
+        transition: .3s
+        cursor: pointer
+        &:hover
+            background: #515cfd8c
+            box-shadow: 0 0 5px #2836fc, 0 0 10px #515cfdb6
+
+            
